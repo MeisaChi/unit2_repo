@@ -1,18 +1,19 @@
 ![weather.png](weather_asbt.png)
+### Member: Meisa Chi, Daiichiro Nakanishi
 
 # Unit 2: A Distributed Weather Station for ISAK
 
 ## Criteria A: Planning
 
 ## Problem definition
-Client: Masamu Oshita (16)
-Context: The client is a student of UWC ISAK Japan and he is currently suffering from difference in the temperature and humidity insides his room compared to the outer spece in the ISAK campus. And he want to have a device that would let him measure the temperture and humidity in the room, to compare to the areas outside his room. 
-Problem: He has limited budget to buy the device that can measure the temperture and humidity. 
+**Client:** Masamu Oshita (16)
+
+**Context:** The client is a student of UWC ISAK Japan and he is currently suffering from difference in the temperature and humidity insides his room compared to the outer spece in the ISAK campus. And he want to have a device that would let him measure the temperture and humidity in the room, to compare to the areas outside his room. 
+
+**Problem:** He has limited budget to buy the device that can measure the temperture and humidity. 
 
 ## Proposed Solution
 Considering the client requirements an adequate solution includes a low cost sensing device for humidity and temperature and a custom data script that process and anaysis the samples acquired. For a low cost sensing device an adequate alternative is the DHT11 sensor[^1] which is offered online for less than 5 USD and provides adequare precision and range for the client requirements (Temperature Range: 0°C to 50°C, Humidity Range: 20% to 90%). Similar devices such as the DHT22, AHT20 or the AM2301B [^2] have higher specifications, however the DHT11 uses a simple serial communication (SPI) rather than more eleborated protocols such as the I2C used by the alternatives. For the range, precision and accuracy required in this applicaiton the DHT11 provides the best compromise. Connecting the DHT11 sensor to a computer requires a device that provides a Serial Port communication. A cheap and often used alternative for prototyping is the Arduino UNO microcontroller [^3]. "Arduino is an open-source electronics platform based on easy-to-use hardware and software"[^4]. In additon to the low cost of the Arduino (< 6USD), this devide is programable and expandable[^1]. Other alternatives include diffeerent versions of the original Arduino but their size and price make them a less adequate solution.
-
-The 
 
 
 **Design statement**
