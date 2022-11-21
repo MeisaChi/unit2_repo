@@ -10,4 +10,4 @@ def avrlng(words:list)->int:
 test1 = avrlng(["hello","",""])
 print(test1)
 ```
-![](https://github.com/MeisaChi/unit2_repo/blob/main/Quizzes/quiz17.png)
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz17.png)
