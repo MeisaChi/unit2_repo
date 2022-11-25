@@ -26,3 +26,4 @@ plt.show()
 
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz23.png)
 ## Part B
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/23b.jpg)
