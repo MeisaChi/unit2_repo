@@ -1,3 +1,4 @@
+## Part A
 ```.py
 def get_truth() ->str:
     A = False
@@ -22,3 +23,5 @@ print(table)
 
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz21.png)
+## Part B
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/21b.jpg)
