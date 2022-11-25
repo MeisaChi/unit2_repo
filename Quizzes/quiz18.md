@@ -18,3 +18,5 @@ out4=numberMatches(12345,123)
 print(out4)
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz18.png)
+## Flow diagram
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/18.jpg)
