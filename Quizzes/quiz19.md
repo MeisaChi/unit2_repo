@@ -1,3 +1,4 @@
+## Part A
 ```.py
 def get_l3tt3r(msg:str)->str:
     new_message = ""
@@ -25,3 +26,7 @@ case3 = get_l3tt3r("Remember the figure caption")
 print(case3)
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz19.png)
+## Flow Diagram
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/19.jpg)
+## Part B
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/19b.jpg)
