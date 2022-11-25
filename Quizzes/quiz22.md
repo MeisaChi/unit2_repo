@@ -18,3 +18,4 @@ my_y, my_x = produce(n=5, m=3, s=2)
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz22.png)
 ## Part B
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/22b.jpg)
