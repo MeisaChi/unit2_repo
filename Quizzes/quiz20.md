@@ -1,3 +1,4 @@
+## Part A
 ```.py
 def get_truth() ->str:
     A = False
@@ -17,3 +18,7 @@ table = get_truth()
 print(table)
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz20.png)
+## Flow Diagram
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/20.jpg)
+## Part B
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/20b.jpg)
