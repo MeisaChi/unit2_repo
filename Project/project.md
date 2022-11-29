@@ -16,8 +16,8 @@
 Considering the client requirements an adequate solution includes a low cost sensing device for humidity and temperature and a custom data script that process and anaysis the samples acquired. For a low cost sensing device an adequate alternative is the DHT11 sensor[^1] which is offered online for less than 5 USD and provides adequare precision and range for the client requirements (Temperature Range: 0°C to 50°C, Humidity Range: 20% to 90%). Similar devices such as the DHT22, AHT20 or the AM2301B [^2] have higher specifications, however the DHT11 uses a simple serial communication (SPI) rather than more eleborated protocols such as the I2C used by the alternatives. For the range, precision and accuracy required in this applicaiton the DHT11 provides the best compromise. Connecting the DHT11 sensor to a computer requires a device that provides a Serial Port communication. A cheap and often used alternative for prototyping is the Arduino UNO microcontroller [^3]. "Arduino is an open-source electronics platform based on easy-to-use hardware and software"[^4]. In additon to the low cost of the Arduino (< 6USD), this devide is programable and expandable[^1]. Other alternatives include diffeerent versions of the original Arduino but their size and price make them a less adequate solution.
 
 
-**Design statement**
-
+## Design Statement
+We will design a system on python where we can record the past 48 hours data on temperature and humidity, and then show it as a linear graph. Can also compare indoors and outdoors, see the highest, the lowest and the average for both datas. Also allows the user to predict the data in the next 12 hours. We will take the data by using Arduino and it's sensor.
 
 
 [^1]: Industries, Adafruit. “DHT11 Basic Temperature-Humidity Sensor + Extras.” Adafruit Industries Blog RSS, https://www.adafruit.com/product/386. 
@@ -51,7 +51,6 @@ Considering the client requirements an adequate solution includes a low cost sen
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
 | 1       | Write the Problem context                        | 10min         | Nov 22                 | A         |
----------------------------------|---------------|------------------------|-----------|
 | 2       | Write the Design Statement                        | 10min         | Nov 29                 | A         |
 
 ## Test Plan
