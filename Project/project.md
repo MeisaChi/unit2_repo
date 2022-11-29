@@ -8,7 +8,7 @@
 ## Problem definition
 **Client:** Masamu Oshita (16)
 
-**Context:** The client is a student of UWC ISAK Japan and he is currently suffering from difference in the temperature and humidity insides his room compared to the outer space in the ISAK campus. His room is too hot and dry compared to outside which is too cold and humid. And he want to have a device that would let him measure the temperture and humidity in the room, to compare to the areas outside his room. 
+**Context:** The client is a student of UWC ISAK Japan and he is currently suffering from difference in the temperature and humidity insides his room compared to the outer space in the ISAK campus. His room is too hot and dry compared to outside which is too cold and humid. And he want to have a device that would let him measure the temperture and humidity in the room, to compare to the areas outside his room, and see how he can fix the room condition. 
 
 **Problem:** He has limited budget to buy the device that can measure the temperture and humidity. 
 
@@ -51,6 +51,8 @@ Considering the client requirements an adequate solution includes a low cost sen
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
 | 1       | Write the Problem context                        | 10min         | Nov 22                 | A         |
+---------------------------------|---------------|------------------------|-----------|
+| 2       | Write the Design Statement                        | 10min         | Nov 29                 | A         |
 
 ## Test Plan
 
