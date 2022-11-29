@@ -23,4 +23,7 @@ plt.show()
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/quiz27.png)
 ## Part B
-#### 
+#### Red = 250
+#### Green = 100
+#### Bule = 10
+#### Hex = 
