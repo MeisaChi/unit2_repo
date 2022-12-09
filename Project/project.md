@@ -46,7 +46,8 @@ We will design a system on python where we can record the past 48 hours data on 
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
 | 1       | Write the Problem context                        | 10min         | Nov 22                 | A         |
 | 2       | Write the Design Statement                        | 10min         | Nov 29                 | A         |
-
+| 3       | Tested collecting data                        | 48hours         | Dec 7,8                 | C         |
+| 4       | Collect data                        | 48hours         | Dec 9,10                 | C         |
 ## Test Plan
 
 # Criteria C: Development
