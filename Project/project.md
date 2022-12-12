@@ -45,7 +45,15 @@ We will design a system on python where we can record the past 48 hours data on 
 **Fig.1** shows the system diagram for the proposed solution (**SL**). The indoor variables will be measured using an Arduino microprocessor and the sensor DHT11 conencted to the local computer (Laptop) located inside a room. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally.
 
 ## Test Plan
-
+| Type | Input | Process | Output |
+|---------|----------------------------------|---------------------------------------|-------------|
+| Python  | Code for taking the data from my room|1. Running the code with Python. / 2. Wait for 48 hours to collect the data. / 3. Check whether I could take data or not.|There will be many datas which will be taken once in 5 minutes.|
+| Python  | Code for taking the data from the server|1. Running the code with Python. / 2. Wait until all the data appears. / 3. delete the data that I don't use for project|There will be many datas which will be taken once in 5 min by server in Asama Lounge. |
+| Python  | Code for ...| |       |
+| Python  | Code for ...| |       |
+| Python  | Code for ...| |       |
+| Python  | Code for ...| |       |
+| Python  | Code for ...| |       |
 
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
