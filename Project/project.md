@@ -44,9 +44,8 @@ We will design a system on python where we can record the past 48 hours data on 
 
 **Fig.1** shows the system diagram for the proposed solution (**SL**). The indoor variables will be measured using an Arduino microprocessor and the sensor DHT11 conencted to the local computer (Laptop) located inside a room. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally.
 
-## The way we store the data
-We stored Campus data and Room data in the different CSV file separately. (Making "room.csv" and "campus.csv") And we were getting the data from these csv files to make a graphs or any other results.
-![](csvs.png)
+## Test Plan
+
 
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
@@ -59,33 +58,32 @@ We stored Campus data and Room data in the different CSV file separately. (Makin
 | 6       | Finalizing, fixing data                   |    A completed csv file available to use for graph | 2hours         | Dec 12                 | C         |
 | 7       | Creating code for creating graphs and predictions                  |A program that shows the graph for room/campus temp/hum, creates predictions and compares the 2 datas     | 3hours         | Dec 12                 | C         |
 | 8       | Work on writing criteria C                  |List the techniques used, explain some parts of the program| 1hour         | Dec 12                 | C         |
-## Test Plan
 
-# Criteria C: Development
+## The way we store the data
+We stored Campus data and Room data in the different CSV file separately. (Making "room.csv" and "campus.csv") And we were getting the data from these csv files to make a graphs or any other results.
+![](csvs.png)
 
-## List of techniques used
-| Collecting data (Room) | Collecting data (Campus) | Lists | Playing with data | Graphing |
-|-|-|-|-|-|
-| | Reading data from a server | Defining Lists | Setting ranges to actions | Creating a grid |
-| | Converting data into readable data (.json) | Adding elements onto Lists (.append) | Find the number of data in a list (len) | Plotting graphs on grid |
-| | Creating lists from servers | Dictionaries | Predictions, Linear lines (Numpy) | Plotting lines and errorbars |
-
-## Development
-
+## Flowcharts
 ### Getting data from the server
 ```.py
 req = requests.get('http://192.168.6.142/readings')
 data = req.json()
 readings = data["readings"][0]
-T = []
-H = []
+currentT = ''
+currentH = ''
 for r in readings:
-    if r["sensor_id"]==4:
-        H.append(r['value'])
-    elif r["sensor_id"]==5:
-        T.append(r['value'])
+    if r["sensor_id"] == 4:
+        currentH = r['value']
+    elif r["sensor_id"] == 5:
+        currentT = r['value']
+
+    date = r['datetime']
+    date2 = date.replace('T', ' ')
+    file = open("campus.csv", "a")
+    file.write(f"{currentT}0, {currentH}0, {date2}\n")
+    file.close()
 ```
-![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Getting%20data%20from%20the%20server.jpg)
+![](getthedata.png)
 ### Smoothing the data
 ```.py
 samples_per_hour = 12
@@ -106,6 +104,19 @@ for i in range(0, len(room_temp_s)):
     x.append(i)
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Creating%20the%20'x'%20value.jpg)
+
+# Criteria C: Development
+
+## List of techniques used
+| Collecting data (Room) | Collecting data (Campus) | Lists | Playing with data | Graphing |
+|-|-|-|-|-|
+| | Reading data from a server | Defining Lists | Setting ranges to actions | Creating a grid |
+| | Converting data into readable data (.json) | Adding elements onto Lists (.append) | Find the number of data in a list (len) | Plotting graphs on grid |
+| | Creating lists from servers | Dictionaries | Predictions, Linear lines (Numpy) | Plotting lines and errorbars |
+
+## Development
+
+
 # Criteria D: Functionality
 
 A 7 min video demonstrating the proposed solution with narration
