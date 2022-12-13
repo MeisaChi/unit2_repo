@@ -151,8 +151,39 @@ for i in range(0, len(room_temp_s)):
 ## Computational Thinking
 
 ### Decomposition
+In computational thinking, decomposition is the process of breaking down a problem into a number of smaller problems that can more easily be addressed. So we decompose the part we have to take a data from server to three parts: reading the data from server, removing the complex strings that we didn't need, Adding the data to the CSV files.
+```.py
+# Reading the data
+req = requests.get('http://192.168.6.142/readings')
+data = req.json()
+readings = data["readings"][0]
+currentT = ''
+currentH = ''
+
+# Removing the unnecessary strings
+for r in readings:
+    if r["sensor_id"] == 4:
+        currentH = r['value']
+    elif r["sensor_id"] == 5:
+        currentT = r['value']
+
+# Adding the data on the CSV files
+    date = r['datetime']
+    date2 = date.replace('T', ' ')
+    file = open("campus.csv", "a")
+    file.write(f"{currentT}0, {currentH}0, {date2}\n")
+    file.close()
+```
 
 ### Pattern Recognition and Abstraction
+In computational thinking, pattern recognition is the process of identifying patterns in a data set to categorize, process and resolve the information more effectively. And abstraction is the process of filtering out – ignoring - the characteristics of patterns that we don't need in order to concentrate on those that we do. So we functioned the code we needed to read the data from Arduino so we didn't have to write it every time. As a result, we felt that our work became more efficient.
+```.py
+def read():
+    data = ""
+    while len(data)<1:
+        data = arduino.readline()
+    return data
+```
 
 ### Algorithms
 
