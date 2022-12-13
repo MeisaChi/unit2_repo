@@ -493,4 +493,5 @@ print(f"The prediction for the room humidity in 12 hours is {room_12_pred_t:.3}"
 ## Scientific Poster
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Project/ScientificPoster.png)
 
-A 7 min video demonstrating the proposed solution with narration
+## A 7 min video demonstrating the proposed solution with narration
+https://youtu.be/ne11LrfUmtM
