@@ -360,6 +360,30 @@ plt.show()
 ```
 ![This is the results](graphs.png)
 
+### Showing average temperature and humidity, and its prediction.
+NEED EXPLAIN
+```.py
+average_temp_r = sum(room_temp_s)/len(room_temp_s)
+print(f"The average temperature in the room in 48 hours is {average_temp_r:.3}")
+
+average_hum_r = sum(room_hum_s)/len(room_hum_s)
+print(f"The average humidity in the room in 48 hours is {average_hum_r:.3}")
+
+average_temp_c = sum(camp_temp_s)/len(camp_temp_s)
+print(f"The average temperature on campus in 48 hours is {average_temp_c:.3}")
+
+average_hum_c = sum(camp_hum_s)/len(camp_hum_s)
+print(f"The average humidity on campus in 48 hours is {average_hum_c:.3}")
+
+
+room_12_pred_t = roomt_m * x_12 + roomt_b
+print(f"The prediction for the room temperature in 12 hours is {room_12_pred_t:.3}")
+
+room_12_pred_t = roomh_m * x_12 + roomh_b
+print(f"The prediction for the room humidity in 12 hours is {room_12_pred_t:.3}")
+```
+![This is the results](ap.png)
+
 
 
 ## Development
