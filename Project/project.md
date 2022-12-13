@@ -186,7 +186,7 @@ def read():
 ```
 
 ### Algorithms
-In computational thinking, algorithms a plan, a set of step-by-step instructions to resolve a problem. In an algorithm, each instruction is identified and the order in which they should be carried out is planned. 
+In computational thinking, algorithms a plan, a set of step-by-step instructions to resolve a problem. In an algorithm, each instruction is identified and the order in which they should be carried out is planned. So we used the while loop to get the data once in 5 minutes and put it to the CSV file. we can say that this while loop is one of our algorithms that we made for project.
 ```.py
 arduino = serial.Serial(port='/dev/cu.usbserial-110', baudrate=9600, timeout=.1)
 def read():
@@ -195,7 +195,7 @@ def read():
         data = arduino.readline()
     return data
     
-#BELOW
+#BELOW is the part that I am explaining as a algorithms
 
 while True:
     time.sleep(300)
