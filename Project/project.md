@@ -6,8 +6,7 @@
 ## Criteria A: Planning
 
 ## Problem definition
-**Client:** Masamu Oshita (16)
-![](masamu.png)
+**Client:** The stundent of UWC ISAK Japan
 
 **Context:** The client is a student of UWC ISAK Japan and he is currently suffering from difference in the temperature and humidity insides his room compared to the outer space in the ISAK campus. His room is too hot and dry compared to outside which is too cold and humid. And he want to have a device that would let him measure the temperture and humidity in the room, to compare to the areas outside his room, and see how he can sort out a way to adjust his room's condition to fit with the campus condition.
 
@@ -51,7 +50,7 @@ We will design a system on python where we can record the past 48 hours data on 
 # Criteria B: Design
 
 ## System Diagram **SL**
-![](sysdim_sl.png)
+![](dia.png)
 
 **Fig.1** shows the system diagram for the proposed solution (**SL**). The indoor variables will be measured using an Arduino microprocessor and the sensor DHT11 conencted to the local computer (Laptop) located inside a room. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally.
 
