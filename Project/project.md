@@ -37,6 +37,11 @@ We will design a system on python where we can record the past 48 hours data on 
 5. Create a prediction the subsequent 12 hours for both temperature and humidity.
 6. A poster summarizing the visual representations, model and analysis is created and communicated.
 
+
+
+
+
+
 # Criteria B: Design
 
 ## System Diagram **SL**
@@ -113,7 +118,25 @@ for i in range(0, len(room_temp_s)):
 ```
 ![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Creating%20the%20'x'%20value.jpg)
 
+
+
+
+
+
+
 # Criteria C: Development
+
+## Existing tools
+|Softwear tools| Coding tools | Libraries |
+|-|-|-|
+| Python / Pycharm Edu | For loops |time|
+|| While loops |serial|
+|| |requests|
+|| |csv|
+|| |matplotlib|
+|| |numpy|
+|| |datetime|
+|| |numpy|
 
 ## List of techniques used
 | Collecting data (Room) | Collecting data (Campus) | Lists | Playing with data | Graphing |
@@ -121,6 +144,69 @@ for i in range(0, len(room_temp_s)):
 | | Reading data from a server | Defining Lists | Setting ranges to actions | Creating a grid |
 | | Converting data into readable data (.json) | Adding elements onto Lists (.append) | Find the number of data in a list (len) | Plotting graphs on grid |
 | | Creating lists from servers | Dictionaries | Predictions, Linear lines (Numpy) | Plotting lines and errorbars |
+
+## Computational Thinking
+
+## Prototype Codes
+These are the codes that we made in python for this project.
+
+**Belows are the codes that takes data**
+
+### Library
+This is the library that you can reach out to the data in ardino and read each lines. And you can get all the data from there and use for making graphs, ect.
+```.py
+arduino = serial.Serial(port='/dev/cu.usbserial-110', baudrate=9600, timeout=.1)
+def read():
+    data = ""
+    while len(data)<1:
+        data = arduino.readline()
+    return data
+```
+
+### Get the data from the school server at Asama Lounge
+It is the code that you can get the tempertures and humidities from the server which is located in Asama Lounge. In the first line, it requested to get the data from server with using the extention that requests to get the data from other place. And it read the all the data from server, however, it is still a complex series of strings. So it is getting only temperture and humidity and the exact time that data was taken from all the data with using for loops. After it take temperture, humidity, and time, it records these data on csv file.
+```.py
+req = requests.get('http://192.168.6.142/readings')
+data = req.json()
+readings = data["readings"][0]
+currentT = ''
+currentH = ''
+for r in readings:
+    if r["sensor_id"] == 4:
+        currentH = r['value']
+    elif r["sensor_id"] == 5:
+        currentT = r['value']
+
+    date = r['datetime']
+    date2 = date.replace('T', ' ')
+    file = open("campus.csv", "a")
+    file.write(f"{currentT}0, {currentH}0, {date2}\n")
+    file.close()
+```
+
+### Get the data from my room arudino
+It is the code that you can get tempertures and humidities of our room from arudino. It is using while roop to get the data once in 5 minutes. If the data were acquired as is, it would be a very complex series of strings.So we have written code to extract only the temperature and humidity from a complex series of strings.Then there is an extension that takes the exact time that data was taken, and the temperature, humidity, and time are all recorded in a CSV file.
+```.py
+while True:
+    time.sleep(300)
+    value = read() #wait until data is in the port
+    now = datetime.datetime.now()
+    msg = value.decode('utf-8').strip()
+    msg = msg.replace('Humidity:', '')
+    msg = msg.replace('%', '')
+    msg = msg.replace('Temperature:', '')
+    msg = msg.replace('C', '')
+
+
+    file = open("room.csv", "a")
+    file.write(f"{msg}, {now}\n")
+    file.close()
+```
+
+**Belows are the codes that makes graphs and other results**
+
+
+
 
 ## Development
 
