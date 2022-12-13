@@ -42,6 +42,10 @@ We will design a system on python where we can record the past 48 hours data on 
 
 
 
+
+
+
+
 # Criteria B: Design
 
 ## System Diagram **SL**
@@ -52,8 +56,8 @@ We will design a system on python where we can record the past 48 hours data on 
 ## Test Plan
 | Type | Input | Process | Output |
 |---------|----------------------------------|---------------------------------------|-------------|
-| Python  | Code for taking the data from my room|1. Running the code with Python. / 2. Wait for 48 hours to collect the data. / 3. Check whether I could take data or not.|There will be many datas which will be taken once in 5 minutes.|
-| Python  | Code for taking the data from the server|1. Running the code with Python. / 2. Wait until all the data appears. / 3. delete the data that I don't use for project|There will be many datas which will be taken once in 5 min by server in Asama Lounge. |
+| Performance testing  | Code for taking the data from my room|1. Running the code with Python. / 2. Wait for 48 hours to collect the data. / 3. Check whether I could take data or not.|There will be many datas which will be taken once in 5 minutes.|
+| Performance testing  | Code for taking the data from the server|1. Running the code with Python. / 2. Wait until all the data appears. / 3. delete the data that I don't use for project|There will be many datas which will be taken once in 5 min by server in Asama Lounge. |
 | Python  | Code for ...| |       |
 | Python  | Code for ...| |       |
 | Python  | Code for ...| |       |
@@ -130,7 +134,7 @@ for i in range(0, len(room_temp_s)):
 |Softwear tools| Coding tools | Libraries |
 |-|-|-|
 | Python / Pycharm Edu | For loops |time|
-|| While loops |serial|
+|Arudino| While loops |serial|
 || |requests|
 || |csv|
 || |matplotlib|
@@ -205,7 +209,108 @@ while True:
 
 **Belows are the codes that makes graphs and other results**
 
+### Getting the data for making a graph
+This is the code that can get the room temperatures, room humidities, campus temperatures, and campus humidities from CSV files.
+```.py
+with open("room.csv") as room:
+    roomdata = room.readlines()
+for line in roomdata:
+    clear_line = line.strip()
+    separated_line = clear_line.split(",")
+    room_temp.append(float(separated_line[1]))
+    room_hum.append(float(separated_line[0]))
 
+with open("campus.csv") as campus:
+    campusdata = campus.readlines()
+for line in campusdata:
+    clear_line = line.strip()
+    separated_line = clear_line.split(",")
+    camp_temp.append(float(separated_line[0]))
+    camp_hum.append(float(separated_line[1]))
+```
+
+### Smoothing the data
+This is the code that makes the line smooth when you make a graph. When making a graph, a smooth line is easier to read than a wobbly line, and is considered more suitable for graphing.
+```.py
+samples_per_hour = 12
+x_per_hour = []
+hour = 0
+
+for i in range(0,len(room_temp),samples_per_hour):
+    data1 = room_temp[i:i+samples_per_hour]
+    room_temp_s.append(sum(data1)/samples_per_hour)
+    x_per_hour.append(hour)
+    hour += 1
+
+for i in range(0,len(room_hum),samples_per_hour):
+    data2 = room_hum[i:i+samples_per_hour]
+    room_hum_s.append(sum(data2)/samples_per_hour)
+    x_per_hour.append(hour)
+    hour += 1
+
+for i in range(0,len(camp_temp),samples_per_hour):
+    data3 = camp_temp[i:i+samples_per_hour]
+    camp_temp_s.append(sum(data3)/samples_per_hour)
+    x_per_hour.append(hour)
+    hour += 1
+
+for i in range(0,len(camp_hum),samples_per_hour):
+    data4 = camp_hum[i:i+samples_per_hour]
+    camp_hum_s.append(sum(data4)/samples_per_hour)
+    x_per_hour.append(hour)
+    hour += 1
+```
+
+## Combining data
+NEED EXPLAIN
+```.py
+room_camp_t_mean = []
+room_camp_h_mean = []
+standard_dev_temp = []
+standard_dev_hum = []
+
+for t in range(len(room_temp_s)):
+    data_t = [room_temp_s[t], camp_temp_s[t]]
+    room_camp_t_mean.append(np.mean(data_t))
+    standard_dev_temp.append(np.std(data_t))
+
+for h in range(len(room_hum_s)):
+    data_h = [room_hum_s[h], camp_hum_s[h]]
+    room_camp_h_mean.append(np.mean(data_h))
+    standard_dev_hum.append(np.std(data_h))
+```
+
+## Linear Lines
+NEED EXPLAIN
+```.py
+roomt_m, roomt_b = np.polyfit(x, room_temp_s, 1)
+print(f"Linear equasion for the room temperature is y={roomt_m:.2f}x+({roomt_b:.2f})")
+x_model = [0, len(room_temp_s)]
+roomt_model = []
+for i in x_model:
+    roomt_model.append(roomt_m * i + roomt_b)
+roomh_m, roomh_b = np.polyfit(x, room_hum_s, 1)
+print(f"Linear equasion for the room humidity is y={roomh_m:.2f}x+({roomh_b:.2f})")
+x_model = [0, len(room_hum_s)]
+roomh_model = []
+for i in x_model:
+    roomh_model.append(roomh_m * i + roomh_b)
+
+campt_m, campt_b = np.polyfit(x, camp_temp_s, 1)
+print(f"Linear equasion for the campus temperature is y={campt_m:.2f}x+({campt_b:.2f})")
+x_model = [0, len(camp_temp_s)]
+campt_model = []
+for i in x_model:
+    campt_model.append(campt_m * i + campt_b)
+
+camph_m, camph_b = np.polyfit(x, camp_hum_s, 1)
+print(f"Linear equasion for the campus humidity is y={camph_m:.2f}x+({camph_b:.2f})")
+x_model = [0, len(camp_hum_s)]
+camph_model = []
+for i in x_model:
+    camph_model.append(camph_m * i + camph_b)
+```
+![This is the results](ll.png)
 
 
 ## Development
