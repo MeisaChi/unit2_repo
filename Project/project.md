@@ -56,13 +56,11 @@ We will design a system on python where we can record the past 48 hours data on 
 ## Test Plan
 | Type | Input | Process | Output |
 |---------|----------------------------------|---------------------------------------|-------------|
-| Performance testing  | Code for taking the data from my room|1. Running the code with Python. / 2. Wait for 48 hours to collect the data. / 3. Check whether I could take data or not.|There will be many datas which will be taken once in 5 minutes.|
-| Performance testing  | Code for taking the data from the server|1. Running the code with Python. / 2. Wait until all the data appears. / 3. delete the data that I don't use for project|There will be many datas which will be taken once in 5 min by server in Asama Lounge. |
-| Python  | Code for ...| |       |
-| Python  | Code for ...| |       |
-| Python  | Code for ...| |       |
-| Python  | Code for ...| |       |
-| Python  | Code for ...| |       |
+| Performance testing  | Code to connect with Arudino and get the data. | 1. Run the code. / 2. Wait unitil the responce come | Computer get the data from ardino in 10 seconds. |
+| Unit testing  | Code for taking the data from my room|1. Running the code with Python. / 2. Wait for 48 hours to collect the data. / 3. Check whether I could take data or not.|There will be many datas which will be taken once in 5 minutes.|
+| Performance testing  | Code to connect with the school server| 1. Run the code. / 2. Wait unitil the responce come | Computer get the data from ardino in 20 seconds.  |
+| Unit testing  | Code for taking the data from the server|1. Running the code with Python. / 2. Wait until all the data appears. / 3. delete the data that I don't use for project|There will be many datas which will be taken once in 5 min by server in Asama Lounge. |
+| Unit testing  | Code for making a graphs| 1. Running the code with Python. / 2. Wait until all the graphs appears.  | Check whether data comes from CSV files and have a correct plot, correct line and explaination.|
 
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
@@ -141,6 +139,7 @@ for i in range(0, len(room_temp_s)):
 || |numpy|
 || |datetime|
 || |numpy|
+|| |json|
 
 ## List of techniques used
 | Collecting data (Room) | Collecting data (Campus) | Lists | Playing with data | Graphing |
@@ -150,6 +149,12 @@ for i in range(0, len(room_temp_s)):
 | | Creating lists from servers | Dictionaries | Predictions, Linear lines (Numpy) | Plotting lines and errorbars |
 
 ## Computational Thinking
+
+### Decomposition
+
+### Pattern Recognition and Abstraction
+
+### Algorithms
 
 ## Prototype Codes
 These are the codes that we made in python for this project.
@@ -313,7 +318,7 @@ for i in x_model:
 ![This is the results](ll.png)
 
 ### Graphing Room's data, Campus's data, and Conpeared version.
-This is the code that makes a graph of room's temperature, room's humidities, campus's temperature, campus's humidities, and compeared version with using plot and lines.
+NEED EXPLAIN
 ```.py
 #grid
 fig = plt.figure(figsize=(24,8))
