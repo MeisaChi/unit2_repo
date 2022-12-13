@@ -261,7 +261,7 @@ for i in range(0,len(camp_hum),samples_per_hour):
     hour += 1
 ```
 
-## Combining data
+### Combining data
 NEED EXPLAIN
 ```.py
 room_camp_t_mean = []
@@ -280,7 +280,7 @@ for h in range(len(room_hum_s)):
     standard_dev_hum.append(np.std(data_h))
 ```
 
-## Linear Lines
+### Linear Lines
 NEED EXPLAIN
 ```.py
 roomt_m, roomt_b = np.polyfit(x, room_temp_s, 1)
@@ -311,6 +311,55 @@ for i in x_model:
     camph_model.append(camph_m * i + camph_b)
 ```
 ![This is the results](ll.png)
+
+### Graphing Room's data, Campus's data, and Conpeared version.
+This is the code that makes a graph of room's temperature, room's humidities, campus's temperature, campus's humidities, and compeared version with using plot and lines.
+```.py
+#grid
+fig = plt.figure(figsize=(24,8))
+grid = GridSpec(2,8, figure=fig)
+
+#graphing_room
+box1 = fig.add_subplot(grid[0, 4])
+plt.plot(x, room_temp_s)
+plt.plot(x_model, roomt_model, color="red")
+plt.title(f"Temperature of room")
+x_12 = 60
+
+box2 = fig.add_subplot(grid[1, 3])
+plt.plot(x, room_hum_s)
+plt.plot(x_model, roomh_model, color="red")
+plt.title(f"Humidity of room")
+plt.xlabel(f"Hours")
+#graphing_campus
+box3 = fig.add_subplot(grid[1, 4])
+plt.plot(x, camp_temp_s)
+plt.plot(x_model, campt_model, color="red")
+plt.title(f"Temperature of campus")
+plt.xlabel(f"Hours")
+
+box4 = fig.add_subplot(grid[0, 3])
+plt.plot(x, camp_hum_s)
+plt.plot(x_model, camph_model, color="red")
+plt.title(f"Humidity of campus")
+
+#graphing_both
+box5 = fig.add_subplot(grid[0:2, 5:8])
+plt.errorbar(x, room_camp_t_mean, standard_dev_temp, fmt="o", color="Red")
+plt.fill_between(x, room_temp_s, camp_temp_s, alpha=.3, color="red")
+plt.title(f"Temperature Compared")
+plt.ylabel(f"Temperature (Celcius)")
+
+box6 = fig.add_subplot(grid[0:2, 0:3])
+plt.errorbar(x, room_camp_h_mean, standard_dev_hum, fmt="o", color="Red")
+plt.fill_between(x, room_hum_s, camp_hum_s, alpha=.3, color="red")
+plt.title(f"Humidity Compared")
+plt.ylabel(f"Relative Humidity")
+
+plt.show()
+```
+![This is the results](graphs.png)
+
 
 
 ## Development
