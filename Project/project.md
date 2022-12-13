@@ -186,6 +186,34 @@ def read():
 ```
 
 ### Algorithms
+In computational thinking, algorithms a plan, a set of step-by-step instructions to resolve a problem. In an algorithm, each instruction is identified and the order in which they should be carried out is planned. 
+```.py
+arduino = serial.Serial(port='/dev/cu.usbserial-110', baudrate=9600, timeout=.1)
+def read():
+    data = ""
+    while len(data)<1:
+        data = arduino.readline()
+    return data
+    
+#BELOW
+
+while True:
+    time.sleep(300)
+    value = read() #wait until data is in the port
+    now = datetime.datetime.now()
+    msg = value.decode('utf-8').strip()
+    msg = msg.replace('Humidity:', '')
+    msg = msg.replace('%', '')
+    msg = msg.replace('Temperature:', '')
+    msg = msg.replace('C', '')
+
+
+    file = open("room.csv", "a")
+    file.write(f"{msg}, {now}\n")
+    file.close()
+```
+
+
 
 ## Prototype Codes
 These are the codes that we made in python for this project.
