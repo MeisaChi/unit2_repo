@@ -98,7 +98,7 @@ for r in readings:
     file.write(f"{currentT}0, {currentH}0, {date2}\n")
     file.close()
 ```
-![](getthedata22.png)
+![](miro.png)
 ### Smoothing the data
 ```.py
 samples_per_hour = 12
