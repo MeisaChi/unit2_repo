@@ -491,6 +491,6 @@ print(f"The prediction for the room humidity in 12 hours is {room_12_pred_t:.3}"
 
 # Criteria D: Functionality
 ## Scientific Poster
-![](https://github.com/MeisaChi/unit2_repo/blob/main/Project/Weather%20Station%20for%20ISAK.png)
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Project/ScientificPoster.png)
 
 A 7 min video demonstrating the proposed solution with narration
