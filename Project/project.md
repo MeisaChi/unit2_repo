@@ -9,6 +9,7 @@
 **Client:** Masamu Oshita (16)
 
 **Context:** The client is a student of UWC ISAK Japan and he is currently suffering from difference in the temperature and humidity insides his room compared to the outer space in the ISAK campus. His room is too hot and dry compared to outside which is too cold and humid. And he want to have a device that would let him measure the temperture and humidity in the room, to compare to the areas outside his room, and see how he can sort out a way to adjust his room's condition to fit with the campus condition.
+![](masamu.png)
 
 **Problem:** He has limited budget to buy the device that can measure the temperture and humidity.
 
@@ -252,7 +253,7 @@ for r in readings:
     file.close()
 ```
 
-### Get the data from my room arudino
+### Get the data from my room arduino
 It is the code that you can get tempertures and humidities of our room from arudino. It is using while roop to get the data once in 5 minutes. If the data were acquired as is, it would be a very complex series of strings.So we have written code to extract only the temperature and humidity from a complex series of strings.Then there is an extension that takes the exact time that data was taken, and the temperature, humidity, and time are all recorded in a CSV file.
 ```.py
 while True:
@@ -270,6 +271,8 @@ while True:
     file.write(f"{msg}, {now}\n")
     file.close()
 ```
+The photo of the place where arduino was put in my room
+![](room.png)
 
 **Belows are the codes that makes graphs and other results**
 
@@ -447,10 +450,6 @@ room_12_pred_t = roomh_m * x_12 + roomh_b
 print(f"The prediction for the room humidity in 12 hours is {room_12_pred_t:.3}")
 ```
 ![This is the results](ap.png)
-
-
-
-## Development
 
 
 # Criteria D: Functionality
