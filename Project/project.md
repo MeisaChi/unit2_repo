@@ -272,7 +272,7 @@ while True:
     file.write(f"{msg}, {now}\n")
     file.close()
 ```
-The photo of the place where arduino was put in my room
+**The photo of the place where arduino was put in my room**
 ![](room.png)
 
 **Belows are the codes that makes graphs and other results**
