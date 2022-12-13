@@ -122,14 +122,14 @@ for i in range(0,len(room_temp),samples_per_hour):
     x_per_hour.append(hour)
     hour += 1
 ```
-![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Smoothing%20the%20data.jpg)
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Smoothing%20the%20data.png)
 ### Creating the 'x' value 
 ```.py
 x = []
 for i in range(0, len(room_temp_s)):
     x.append(i)
 ```
-![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Creating%20the%20'x'%20value.jpg)
+![](https://github.com/MeisaChi/unit2_repo/blob/main/Screenshots/Creating%20the%20'x'%20value.png)
 
 
 
@@ -339,7 +339,7 @@ for i in range(0,len(camp_hum),samples_per_hour):
 ```
 
 ### Combining data
-NEED EXPLAIN
+This code conbines the data from the campus and the room, and then calculates the mean value and the standard deviation for temperature and the humidity. This will help the client to see how much actual difference there are in between the 2 environments.
 ```.py
 room_camp_t_mean = []
 room_camp_h_mean = []
@@ -358,7 +358,7 @@ for h in range(len(room_hum_s)):
 ```
 
 ### Linear Lines
-NEED EXPLAIN
+This code calculates the equation of line of best fit from the data. Creating a line from the data makes it easier for the client to understand the graph, and also helps with making further predictions.
 ```.py
 roomt_m, roomt_b = np.polyfit(x, room_temp_s, 1)
 print(f"Linear equasion for the room temperature is y={roomt_m:.2f}x+({roomt_b:.2f})")
@@ -390,7 +390,7 @@ for i in x_model:
 ![This is the results](ll.png)
 
 ### Graphing Room's data, Campus's data, and Conpeared version.
-NEED EXPLAIN
+This is all the graphing part. We seperated it into first making the grid, and then graphing the room, then campus, then both compared. We made the conbined graph bigger to make it easier to see, and all the temperature graphs are on the right side, humidity on the left.
 ```.py
 #grid
 fig = plt.figure(figsize=(24,8))
@@ -438,7 +438,7 @@ plt.show()
 ![This is the results](graphs.png)
 
 ### Showing average temperature and humidity, and its prediction.
-NEED EXPLAIN
+This is a code that shows the average temperature for the room and the campus, average humidity for the campus, and also shows the prediction of temperature and humidity in the room after 12 hours. The prediction is created using the linear line mentioned above.
 ```.py
 average_temp_r = sum(room_temp_s)/len(room_temp_s)
 print(f"The average temperature in the room in 48 hours is {average_temp_r:.3}")
