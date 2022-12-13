@@ -75,6 +75,15 @@ We will design a system on python where we can record the past 48 hours data on 
 | 6       | Finalizing, fixing data                   |    A completed csv file available to use for graph | 2hours         | Dec 12                 | C         |
 | 7       | Creating code for creating graphs and predictions                  |A program that shows the graph for room/campus temp/hum, creates predictions and compares the 2 datas     | 3hours         | Dec 12                 | C         |
 | 8       | Work on writing criteria C                  |List the techniques used, explain some parts of the program| 1hour         | Dec 12                 | C         |
+| 9       | Write the Test plan     |The spreadsheet of test paln| 10min         | Dec 13                 | B         |
+| 10       | Write the way we store the data     |make people being able to know how we store the data| 10min         | Dec 13                 | B | 
+| 11       | Draw the flow chart and put the code with it|make people being able see the flowchart and code that we made| 30min         | Dec 13                 | B | 
+| 12       | Write the existing tools    |make people being able to see the tools that we used| 10min         | Dec 13                 | C | 
+| 13       | Write the list of techniques used     |make people being able to know what techniques we used| 10min         | Dec 13                 | C | 
+| 14       | Write the Computational thinking part     |make people being able to know what kind of computational thinking we used| 45min         | Dec 13                 | C | 
+| 15       | Write the prptotype codes    |make people being able to know what we coded| 40min         | Dec 13                 | C | 
+| 16       | Make a poster which explains what we did in the project    |make client being able to know the situation of temperature and humidity in Isak| 120min         | Dec 13                 | C | 
+| 17       | Make a video which explains the contents what we did for this project    |make people being able to know the work that we have been working on| 120min         | Dec 13                 | C | 
 
 ## The way we store the data
 We stored Campus data and Room data in the different CSV file separately. (Making "room.csv" and "campus.csv") And we were getting the data from these csv files to make a graphs or any other results.
