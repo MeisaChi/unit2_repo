@@ -155,9 +155,9 @@ for i in range(0, len(room_temp_s)):
 ## List of techniques used
 | Collecting data (Room) | Collecting data (Campus) | Lists | Playing with data | Graphing |
 |-|-|-|-|-|
-| | Reading data from a server | Defining Lists | Setting ranges to actions | Creating a grid |
-| | Converting data into readable data (.json) | Adding elements onto Lists (.append) | Find the number of data in a list (len) | Plotting graphs on grid |
-| | Creating lists from servers | Dictionaries | Predictions, Linear lines (Numpy) | Plotting lines and errorbars |
+| Reading data from a server with using while loop | Reading data from a server | Defining Lists | Setting ranges to actions | Creating a grid |
+| Adding elements onto Lists (.append) | Converting data into readable data (.json) | Adding elements onto Lists (.append) | Find the number of data in a list (len) | Plotting graphs on grid |
+| Creating lists from Arduino | Creating lists from servers | Dictionaries | Predictions, Linear lines (Numpy) | Plotting lines and errorbars |
 
 ## Computational Thinking
 
