@@ -86,6 +86,8 @@ We will design a system on python where we can record the past 48 hours data on 
 
 ## The way we store the data
 We stored Campus data and Room data in the different CSV file separately. (Making "room.csv" and "campus.csv") And we were getting the data from these csv files to make a graphs or any other results.
+
+
 **room.csv(Example)**
 ```.py
 20.00, 24.50, 2022-12-10 00:10:11.980599
